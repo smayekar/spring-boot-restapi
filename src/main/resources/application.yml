@@ -1,0 +1,40 @@
+spring:
+  profiles:
+    active: "dev"
+  main:
+    banner-mode: "off"
+
+server:
+  port: 9001
+  error:
+    whitelabel:
+      enabled: false
+---
+spring:
+  profiles: dev
+  data:
+    mongodb:
+      uri: mongodb://appuser:jSi9Vj79Tiwlx7LN15y3@nj3dccmngdv01.it.savvis.net,nj3dccmngdv02.it.savvis.net,nj3dccmngdv03.it.savvis.net/dccdb?authSource=admin&replicaSet=dcc0
+logging:
+    level:
+      .: DEBUG
+      org.springframework: DEBUG
+      com.ctl: DEBUG
+    file: ./log/restApi.log
+    pattern:
+      console: "%d{HH:mm:ss.SSS} %-6level [%t] %logger{25} - %msg %n"
+      file: "%d{HH:mm:ss.SSS} %-6level [%t] %logger{25} - %msg %n"
+---
+spring:
+  profiles: prod
+  data:
+      mongodb:
+        uri: mongodb://appuser:jSi9Vj79Tiwlx7LN15y3@dc2dccmngprd01a,dc2dccmngprd01b,dc2dccmngprd01c/dccdb?authSource=admin&replicaSet=dcc0
+logging:
+    level:
+      .: WARN
+      org.springframework: WARN
+      com.ctl: DEBUG
+    file: ./log/restApi.log
+    pattern:
+      file: "%d{HH:mm:ss.SSS} %-6level [%t] %logger{25} - %msg %n"
