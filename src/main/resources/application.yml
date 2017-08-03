@@ -22,8 +22,8 @@ logging:
       com.ctl: DEBUG
     file: ./log/restApi.log
     pattern:
-      console: "%d{HH:mm:ss.SSS} %-6level [%t] %logger{25} - %msg %n"
-      file: "%d{HH:mm:ss.SSS} %-6level [%t] %logger{25} - %msg %n"
+      console: "%d %-6level [%t] %logger{25} - %msg %n"
+      file: "%d %-6level [%t] %logger{25} - %msg %n"
 ---
 spring:
   profiles: prod
@@ -32,9 +32,9 @@ spring:
         uri: mongodb://appuser:jSi9Vj79Tiwlx7LN15y3@dc2dccmngprd01a,dc2dccmngprd01b,dc2dccmngprd01c/dccdb?authSource=admin&replicaSet=dcc0
 logging:
     level:
-      .: WARN
-      org.springframework: WARN
+      .: ERROR
+      org.springframework: ERROR
       com.ctl: DEBUG
     file: ./log/restApi.log
     pattern:
-      file: "%d{HH:mm:ss.SSS} %-6level [%t] %logger{25} - %msg %n"
+      file: "%d %-6level [%t] %logger{25} - %msg %n"
