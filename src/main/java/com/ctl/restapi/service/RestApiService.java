@@ -9,8 +9,12 @@ import java.util.List;
 
 @Service
 public class RestApiService {
+    private ClusterRepository clusterRepository;
+
     @Autowired
-    ClusterRepository clusterRepository;
+    public RestApiService(ClusterRepository clusterRepository){
+        this.clusterRepository = clusterRepository;
+    }
 
     public List<Cluster> findAllClusters(){
         return clusterRepository.findAll();

@@ -16,8 +16,12 @@ import java.util.List;
 public class RestApiController {
     private static final Logger LOGGER = LoggerFactory.getLogger(RestApiController.class);
 
+    private RestApiService restApiService;
+
     @Autowired
-    RestApiService restApiService;
+    public RestApiController(RestApiService restApiService) {
+        this.restApiService = restApiService;
+    }
 
     @RequestMapping(value = "/clusters", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     @ApiResponses(value = {
