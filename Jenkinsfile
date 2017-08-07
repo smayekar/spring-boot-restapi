@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent test package'
+                sh 'mvn clean package'
             }
         }
         stage('Docker') {
