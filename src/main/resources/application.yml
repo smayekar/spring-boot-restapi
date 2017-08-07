@@ -17,8 +17,8 @@ spring:
       uri: mongodb://appuser:jSi9Vj79Tiwlx7LN15y3@nj3dccmngdv01.it.savvis.net,nj3dccmngdv02.it.savvis.net,nj3dccmngdv03.it.savvis.net/dccdb?authSource=admin&replicaSet=dcc0
 logging:
     level:
-      .: DEBUG
-      org.springframework: DEBUG
+      .: ERROR
+      org.springframework: ERROR
       com.ctl: DEBUG
     file: ./log/restApi.log
     pattern:
