@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.ctl</groupId>
-	<artifactId>restapi</artifactId>
+	<artifactId>dcc-yellowdemo</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
