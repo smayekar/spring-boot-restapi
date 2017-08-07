@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: ca3.hub.master.skydns.local/dcc-yellowdemo
+  repository: ca3.hub.master.skydns.local/dcc/dccabl/dcc-yellowdemo
   tag: latest
   pullPolicy: IfNotPresent
 service:

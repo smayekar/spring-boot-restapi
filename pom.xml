@@ -5,7 +5,7 @@
 
 	<groupId>com.ctl</groupId>
 	<artifactId>restapi</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>restAPI</name>
@@ -19,10 +19,18 @@
 	</parent>
 
 	<properties>
+		<registry>ca3.hub.master.skydns.local</registry>
+		<organization>dcc/dccabl</organization>
+		<build.tag>local</build.tag>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<maven.min-version>3.3.9</maven.min-version>
 	</properties>
+
+	<prerequisites>
+		<maven>${maven.min-version}</maven>
+	</prerequisites>
 
 	<dependencies>
 		<dependency>
@@ -68,6 +76,31 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+		<plugin>
+			<groupId>com.spotify</groupId>
+			<artifactId>docker-maven-plugin</artifactId>
+			<version>0.4.12</version>
+			<configuration>
+				<imageName>${registry}/${organization}/${project.artifactId}</imageName>
+				<dockerDirectory>${basedir}/src/main/docker</dockerDirectory>
+				<!-- copy the service's jar file from target into the root directory of the image -->
+				<resources>
+					<resource>
+						<targetPath>/</targetPath>
+						<directory>${project.build.directory}</directory>
+						<include>${project.build.finalName}.jar</include>
+					</resource>
+				</resources>
+				<forceTags>true</forceTags>
+				<pushImage>true</pushImage>
+				<imageTags>
+					<imageTag>${project.version}</imageTag>
+					<imageTag>${build.tag}</imageTag>
+				</imageTags>
+			</configuration>
+		</plugin>
+
 		</plugins>
 	</build>
 

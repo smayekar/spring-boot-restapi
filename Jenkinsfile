@@ -7,12 +7,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -f dcc-yellowdemo clean org.jacoco:jacoco-maven-plugin:prepare-agent test package'
+                sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent test package'
             }
         }
         stage('Docker') {
             steps {
-                sh "mvn -f dcc-yellowdemo  -DpushImage=true -Dbuild.tag=${env.BUILD_TAG} docker:build"
+                sh "mvn -DpushImage=true -Dbuild.tag=${env.BUILD_TAG} docker:build"
             }
         }
         stage('Deploy') {
