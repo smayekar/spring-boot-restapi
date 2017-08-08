@@ -9,8 +9,8 @@ image:
 service:
   name: nginx
   type: ClusterIP
-  externalPort: 8080
-  internalPort: 8080
+  externalPort: 9001
+  internalPort: 9001
 ingress:
   enabled: false
   # Used to create Ingress record (should used with service.type: ClusterIP).
