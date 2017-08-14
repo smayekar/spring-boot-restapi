@@ -37,4 +37,5 @@ logging:
       com.ctl: DEBUG
     file: ./log/restApi.log
     pattern:
+      console: "%d %-6level [%t] %logger{25} - %msg %n"
       file: "%d %-6level [%t] %logger{25} - %msg %n"
