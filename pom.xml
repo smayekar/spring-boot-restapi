@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.ctl</groupId>
-	<artifactId>dcc-yellowdemo</artifactId>
+	<artifactId>spring-boot-demo</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
@@ -20,7 +20,7 @@
 
 	<properties>
 		<registry>ca3.hub.master.skydns.local</registry>
-		<organization>dcc/dccabl</organization>
+		<organization>test/abl</organization>
 		<build.tag>local</build.tag>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

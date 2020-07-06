@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active: "dev"
+  main:
+    banner-mode: "off"
+
+server:
+  port: 9001
+  error:
+    whitelabel:
+      enabled: false
+---
+spring:
+  profiles: dev
+  data:
+    mongodb:
+      uri: mongodb://appuser:test123@mngdv01.it.test.net,mngdv02.it.test.net,mngdv03.it.test.net/test?authSource=admin&replicaSet=dcc0
+logging:
+    level:
+      .: ERROR
+      org.springframework: ERROR
+      com.ctl: DEBUG
+    file: ./log/restApi.log
+    pattern:
+      console: "%d %-6level [%t] %logger{25} - %msg %n"
+      file: "%d %-6level [%t] %logger{25} - %msg %n"
